@@ -4,7 +4,7 @@
   stdenv,
   mkYarnPackage,
 }: let
-  packageJSON = build.fromJSON (builtins.readFile ./package.json);
+  packageJSON = builtins.fromJSON (builtins.readFile ./package.json);
   version = packageJSON.version;
 
   nodeModules = mkYarnPackage {
